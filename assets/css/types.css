@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+#grass{
+    background-color: #48D0B0;
+    .types > li {
+        background-color: #2aac8d50;
+    }
+}
+
+#fire {
+    background-color: #FB6C6C;
+    .types > li {
+        background-color: #86171744;
+    }
+}
+
+#water {
+    background-color: #76BDFE;
+    .types > li {
+        background-color: #1c548842;
+    }
+}
+
+#electric {
+    background-color: #FFD86F;
+    .types > li {
+        background-color: #91732350;
+    }
+}
