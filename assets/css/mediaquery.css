@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+@media screen and (max-width: 390px){
+    .pokemons {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (min-width: 620px){
+    section{
+        max-width: 590px;
+        margin: auto;
+    }
+
+    .pokemons {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 992px){
+    section{
+        max-width: 972px;
+        margin: auto;
+    }
+    
+    .pokemons {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
