@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-#grass{
+#grass, #bug{
     background-color: #48D0B0;
     .types > li {
         background-color: #2aac8d50;
@@ -14,7 +14,7 @@
     }
 }
 
-#water {
+#water, #ice {
     background-color: #76BDFE;
     .types > li {
         background-color: #1c548842;
@@ -25,5 +25,47 @@
     background-color: #FFD86F;
     .types > li {
         background-color: #91732350;
+    }
+}
+
+#poison, #ghost {
+    background-color: #7D528D;
+    .types > li {
+        background-color: #66257e6b;
+    }
+}
+
+#rock, #ground {
+    background-color: #B2746C;
+    .types > li {
+        background-color: #813c3249;
+    }
+}
+
+#normal, #fighting {
+    background-color: burlywood;
+    .types > li {
+        background-color: rgba(160, 117, 61, 0.295);
+    }
+}
+
+#fairy {
+    background-color: #eeb7c4;
+    .types > li {
+        background-color: #aa61725b;
+    }
+}
+
+#psychic {
+    background-color: #FE73A4;
+    .types > li {
+        background-color: #9e2a535b;
+    }
+}
+
+#dragon {
+    background-color: #9f86ce;
+    .types > li {
+        background-color: #61488f5b;
     }
 }

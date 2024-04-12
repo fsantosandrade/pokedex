@@ -1,17 +1,13 @@
-function convertPokemonTypesToLi(pokemonTypes){
-    return pokemonTypes.map((typeSlot) => `<li>${typeSlot.type.name}</li>`)
-} 
-
 function convertPokemonToLi(pokemon){
     return `
-    <li class="pokemon" id="grass">
+    <li class="pokemon" id="${pokemon.type}">
         <span class="number">#${pokemon.id}</span>
         <span class="name">${pokemon.name}</span>
         <div class="detalhes">
             <ol class="types">
-                ${convertPokemonTypesToLi(pokemon.types).join('')}
+                ${pokemon.types.map((type) => `<li>${type}</li>`).join('')} 
             </ol>
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg" alt="${pokemon.name}">
+            <img src="${pokemon.img}" alt="${pokemon.name}">
         </div>
     </li>
     `
@@ -19,7 +15,7 @@ function convertPokemonToLi(pokemon){
 
 const pokemonOl = document.getElementById('pokemonList')
 
-pokeapi.getPokemons(0, 110).then((pokemonList) => {
+pokeapi.getPokemons(0, 151).then((pokemonList) => {
     
     //map vai transformar todos os elementos da lista para um item de lista string
 
