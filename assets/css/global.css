@@ -75,3 +75,18 @@ section {
     max-width: 100%;
     height: 70px;
 }
+
+#loadMore {
+    display: block;
+    margin: auto;
+    border: none;
+    background-color: rgba(190, 190, 190, 0.795);
+    border-radius: 8px;
+    font-weight: 700;
+    padding: 5px;
+}
+
+#loadMore:hover {
+    box-shadow: 1px 1px 5px black;
+    cursor: pointer;
+}

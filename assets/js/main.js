@@ -1,6 +1,6 @@
 function convertPokemonToLi(pokemon){
     return `
-    <li class="pokemon ${pokemon.type}" id="">
+    <li class="pokemon ${pokemon.type}">
         <span class="number">#${pokemon.id}</span>
         <span class="name">${pokemon.name}</span>
         <div class="detalhes">
@@ -14,26 +14,47 @@ function convertPokemonToLi(pokemon){
 }
 
 const pokemonOl = document.getElementById('pokemonList')
+const loadMore = document.getElementById('loadMore')
 
-pokeapi.getPokemons(0, 151).then((pokemonList) => {
-    
-    //map vai transformar todos os elementos da lista para um item de lista string
+const maxRecords = 649
+const limit = 14
+let offset = 0
 
-    //join vai juntar todos os elementos transformados pelo map numa variável apenas
-    const newHtml = pokemonList.map(convertPokemonToLi).join('')
-    pokemonOl.innerHTML = newHtml
+function loadPokeItens (offset, limit) {
+            pokeapi.getPokemons(offset, limit).then((pokemonList) => {
+            //map vai transformar todos os elementos da lista para um item de lista string
+
+            //join vai juntar todos os elementos transformados pelo map numa variável apenas
+            const newHtml = pokemonList.map(convertPokemonToLi).join('')
+            pokemonOl.innerHTML += newHtml
 
 
 
 
-    //Método antigo
-    /* const newList = []
-    for(let i = 0; i < pokemonList.length; i++){
-        const pokemon = pokemonList[i]
-        newList.push(convertPokemonToLi(pokemon))
-    } */
+            //Método antigo
+            /* const newList = []
+            for(let i = 0; i < pokemonList.length; i++){
+                const pokemon = pokemonList[i]
+                newList.push(convertPokemonToLi(pokemon))
+            } */
+        })
+}
+
+loadPokeItens(offset, limit)
+
+loadMore.addEventListener('click', () => {
+    offset += limit
+    const qtdRecordWithNextPage = offset + limit
+
+    if(qtdRecordWithNextPage >= maxRecords){
+        const newLimit = maxRecords - offset
+        loadPokeItens(offset, newLimit)
+
+        loadMore.parentElement.removeChild(loadMore)
+    }else{
+        loadPokeItens(offset, limit)
+    }
 })
-
 
 
 /* fetch(url)
